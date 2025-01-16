@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 폰트 설정 */
+@font-face {
+    font-family: 'Pretendard-Black';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'RiaSans-ExtraBold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/RiaSans-ExtraBold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'Giants-Inline';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Inline.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'KIMM_Bold';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KIMM_Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'HBIOS-SYS';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'SDKukdetopokki';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SDKukdetopokki.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+/* CSS 변수 */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-size-base: 16px;
+}
+
+/* 로컬 클래스 */
+.body {
+  color: var(--foreground);
+  background: var(--background);
+  font-size: calc(1rem + 0.2vw);
+  font-family: 'KIMM_Bold';
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(0, 0, 0);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+}
+
+.subTitle {
+  margin-bottom: 3vh;
+  margin-top: -1vh;
+  display: block;
+  text-align: center;
+  color: #ffffff;
+  font-family: 'Giants-Inline';
+  font-size: calc(1rem + 4vw);
+  background: radial-gradient(circle, #fff 50%, transparent 51%) 0 0 / calc(0.06em + 0.03vw) calc(0.06em + 0.03vw),
+    transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  max-width: 200%;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.4), 0 0 8px rgba(255, 255, 255, 0.4),
+    0 0 18px rgba(255, 255, 255, 0.3), 0 0 30px rgba(0, 255, 170, 0.8), 0 0 60px rgba(0, 255, 170, 0.6),
+    0 0 80px rgba(0, 255, 170, 0.4), 0 0 100px rgba(0, 255, 170, 0.4), 0 0 120px rgba(0, 255, 170, 0.2);
+}
+
+.mp {
+  font-family: 'Giants-Inline';
+  font-size: calc(2rem + 5vw);
+  letter-spacing: 0.1vw;
+  text-align: center;
+  white-space: pre-line;
+  background: linear-gradient(to right, #fc354c, #0abfbc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 10px rgba(252, 255, 255, 0.1), 0 0 20px rgba(252, 53, 76, 0.1), 0 0 40px rgba(252, 53, 76, 0.1),
+    0 0 60px rgba(10, 191, 188, 0.8), 0 0 80px rgba(10, 191, 188, 0.6), 0 0 100px rgba(10, 191, 188, 0.4);
+}
+
+.tableContainer {
+  margin: 0 auto;
+  width: 80%;
+  margin-top: 4vh;
+  margin-bottom: 5vh;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ffffff;
+  padding: 1vw;
+}
+
+.table th {
+  background: transparent;
+  color: #ffffff;
+}
+
+.table td {
+  text-align: center;
+  background: transparent;
+}
+
+.message {
+  text-align: center;
+  font-size: calc(1rem + 0.2vw);
+  margin-top: 2vh;
+}
+
+.messageError {
+  color: red;
+}
+
+.messageLoading {
+  color: rgb(255, 255, 255);
+}
+
+.topRank {
+  background-color: #ffe34471;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20vw;
+  height: 10vh;
+  text-align: center;
+  margin-top: 4vh;
+}
+
+.loadingTitle {
+  margin-bottom: 2vh;
+  text-align: center;
+  font-size: calc(2rem + 1vw);
+  font-family: 'Giants-Inline';
+  line-height: 1.3333;
+  color: #ffffff;
+  animation-name: flicker;
+  animation-duration: 1600ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.progressBar {
+  position: relative;
+  width: 20vw;
+  height: 1vh;
+  border-radius: 100px;
+  background-color: rgb(218, 218, 218);
+  overflow: hidden;
+}
+
+.progressBarGauge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6%;
+  height: 100%;
+  border-radius: 100px;
+  background-color: rgb(32, 56, 161);
+  animation-name: loadingBar;
+  animation-duration: 1600ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+}
+
+@keyframes flicker {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes loadingBar {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  80% {
+    width: 100%;
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}

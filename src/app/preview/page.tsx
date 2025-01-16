@@ -40,7 +40,7 @@ import {
 } from "@/once-ui/components";
 import { CodeBlock, MediaUpload } from "@/once-ui/modules";
 
-export default function Home() {
+export default function PreviewPAge() {
   const [selectedValue, setSelectedValue] = useState("");
   const [selectedRange, setSelectedRange] = useState<DateRange>();
   const [isFirstDialogOpen, setIsFirstDialogOpen] = useState(false);
@@ -67,9 +67,10 @@ export default function Home() {
     {
       href: "/ranking",
       title: "랭킹 보기",
-      description: "Weekly Ranking",
+      description: "Weekly",
     }
   ];
+
 
   const validateIntro = (value: React.ReactNode) => {
     if (typeof value === "string" && value.length < 10) {
@@ -118,31 +119,22 @@ export default function Home() {
         >
           <Logo size="l" icon={false} href="/" />
           <Row gap="12" hide="s">
-            <Button
-              href="/preview"
-              prefixIcon=""
-              size="s"
-              label="멀리빨리란?"
-              weight="default"
-              variant="tertiary"
-            />
-            <Button
-              href="https://yeyak.seoul.go.kr/web/reservation/selectReservView.do?rsv_svc_id=S241223164029508683"
-              prefixIcon=""
-              size="s"
-              label="예약 하기"
-              weight="default"
-              variant="tertiary"
-            />
-            <Button
-              href="/ranking"
-              prefixIcon=""
-              size="s"
-              label="랭킹 보기"
-              weight="default"
-              variant="tertiary"
-            />
-            
+          <Button
+            href="/preview"
+            prefixIcon="discord"
+            size="s"
+            label="멀리빨리란?"
+            weight="default"
+            variant="tertiary"
+          />
+          <Button
+            href="/ranking"
+            prefixIcon="github"
+            size="s"
+            label="랭킹 보기"
+            weight="default"
+            variant="tertiary"
+          />
             <StyleOverlay top="20" right="24" />
           </Row>
           <Row gap="16" show="s" alignItems="center" paddingRight="24">
@@ -243,7 +235,6 @@ export default function Home() {
             </Heading>
             <Column alignItems="center" paddingTop="64" fillWidth gap="24">
               <Line maxWidth={4} marginBottom="16" background="neutral-alpha-medium" />
-
               <Heading marginBottom="12" as="h2" align="center" variant="heading-default-l">
                 가장 멀리, 가장 빠르게 달리는
                 <br /> 제작 미니카 레이싱
@@ -417,6 +408,64 @@ export default function Home() {
         </Column>
 
 
+
+        <Row
+          position="relative"
+          fillWidth
+          paddingX="32"
+          paddingTop="160"
+          minHeight={28}
+          paddingBottom="80"
+          justifyContent="center"
+          alignItems="flex-end"
+        >
+          <Background
+            mask={{
+              x: 50,
+              y: 100,
+            }}
+            position="absolute"
+            grid={{
+              display: true,
+              width: "0.25rem",
+              color: "brand-alpha-strong",
+              height: "0.25rem",
+            }}
+          />
+          <Row position="relative" textVariant="display-default-m" align="center">
+            Learn more
+          </Row>
+        </Row>
+        <Row fillWidth overflow="hidden">
+          <Row maxWidth="32" borderTop="neutral-alpha-weak" borderBottom="neutral-medium"></Row>
+          <Row fillWidth border="neutral-alpha-weak" mobileDirection="column">
+            {links.map((link, index) => (
+              <SmartLink unstyled fillWidth target="_blank" key={link.href} href={link.href}>
+                <Card
+                  fillWidth
+                  padding="40"
+                  gap="8"
+                  direction="column"
+                  background={undefined}
+                  borderRight={index < links.length - 1 ? "neutral-alpha-weak" : undefined}
+                  border={undefined}
+                  radius={undefined}
+                >
+                  <Row fillWidth justifyContent="center" gap="12" alignItems="center">
+                    <Text variant="body-strong-m" onBackground="neutral-strong">
+                      {link.title}
+                    </Text>
+                    <Icon size="s" name="arrowUpRight" />
+                  </Row>
+                  <Text align="center" variant="body-default-s" onBackground="neutral-weak">
+                    {link.description}
+                  </Text>
+                </Card>
+              </SmartLink>
+            ))}
+          </Row>
+          <Row maxWidth="32" borderTop="neutral-alpha-weak" borderBottom="neutral-medium"></Row>
+        </Row>
         <Row
           position="relative"
           as="footer"
@@ -452,6 +501,9 @@ export default function Home() {
             <Text size="m">
               <Text onBackground="neutral-weak">2024 /</Text> 서울시립과학관
             </Text>
+            <SmartLink href="https://github.com/once-ui-system/nextjs-starter?tab=MIT-1-ov-file">
+              MIT License
+            </SmartLink>
           </Column>
         </Row>
       </Column>
